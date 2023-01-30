@@ -53,6 +53,7 @@ public class BController {
 		
 		return "list";
 	}
+	
 //	글쓰기폼기능
 	@RequestMapping("/writeview")
 	public String writeview(Model model) {

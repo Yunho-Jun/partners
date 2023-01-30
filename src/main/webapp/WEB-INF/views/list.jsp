@@ -115,6 +115,9 @@
 			<td colspan="5"><a href="writeview">글쓰기</a></td>
 		</tr>
 	</table>
+		</div>
+</div>
+	
 	
 	
 	totCnt : ${totRowcnt }
@@ -164,8 +167,8 @@
 			</c:otherwise>
 			</c:choose>
 
-			<input type="text" name="sk" value="${resk }" /> <input
-				type="submit" value="검색" />
+			<input type="text" name="sk" value="${resk }" /> 
+			<input type="submit" value="검색" />
 
 		</div>
 
