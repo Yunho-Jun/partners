@@ -53,7 +53,16 @@ public class BController {
 
 		return "list";
 	}
+<<<<<<< HEAD
 
+=======
+//	로그인기능
+	@RequestMapping("/login")
+	public String login(Model model) {
+		System.out.println("========login=======");
+		return "login";
+	}
+>>>>>>> origin/jeaho
 //	글쓰기폼기능
 	@RequestMapping("/writeview")
 	public String writeview(Model model) {
