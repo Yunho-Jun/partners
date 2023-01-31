@@ -40,7 +40,7 @@
 				<a href="#">테마</a>
 			</div>
 			<div id="d3" class="col-xs-12 col-md-4">
-				<a href="#">마켓</a>
+				<a href="#">마켓2</a>
 			</div>
 		</div>
 	</div>
