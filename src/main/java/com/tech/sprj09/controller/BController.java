@@ -175,18 +175,6 @@ public class BController {
 		return "redirect:list";
 	}
 
-	@RequestMapping("/admin")
-	public String admin(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("========admin=======");
-		// db에서 데이터 가져오기
 
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
-
-		bServiceInter = new BListService(sqlSession);
-		bServiceInter.execute(model);
-
-		return "admin";
-	}
 
 }
