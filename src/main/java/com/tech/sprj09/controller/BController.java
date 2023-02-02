@@ -39,6 +39,20 @@ public class BController {
 	@Autowired
 	private SqlSession sqlSession;
 
+	// 회원가입 구현
+	@RequestMapping("/join")
+	public String join(HttpServletRequest request, SearchVO searchVO, Model model) {
+		
+		model.addAttribute("request", request);
+		model.addAttribute("searchVO", searchVO);
+
+		bServiceInter = new BListService(sqlSession);
+		bServiceInter.execute(model);
+		
+
+		return "join";
+	}
+
 	// 목록표현
 	@RequestMapping("/list")
 	public String list(HttpServletRequest request, SearchVO searchVO, Model model) {

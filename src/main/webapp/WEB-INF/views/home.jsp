@@ -34,6 +34,11 @@ function redeptlist() {
 }
 </script>
 
+<a href="login">로그인</a>
+<a href="join">회원가입</a>
+
+<hr />
+
 <h3>db접속 데이터 조회 by RestController</h3>
 <hr />
 <a href="javascript:redeptlist();">restdeptlist</a> <br />

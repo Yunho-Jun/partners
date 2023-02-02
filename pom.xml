@@ -58,7 +58,8 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
+			
+		<scope>runtime</scope> 
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -82,8 +83,11 @@
 					<artifactId>jmxri</artifactId>
 				</exclusion>
 			</exclusions>
-			<scope>runtime</scope>
+			
+	<scope>runtime</scope>
+			
 		</dependency>
+		
 
 		<!-- @Inject -->
 		<dependency>
@@ -201,7 +205,12 @@
 			<version>2.9.2</version>
 		</dependency>
 
-
+		<!-- log4j  0201 추가 -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 
 
 	</dependencies>
