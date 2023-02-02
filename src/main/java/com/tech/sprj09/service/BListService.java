@@ -1,6 +1,5 @@
 package com.tech.sprj09.service;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,9 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.tech.sprj09.dao.BoardDao;
 import com.tech.sprj09.dao.IDao;
-import com.tech.sprj09.dto.BoardDto;
 import com.tech.sprj09.vopage.SearchVO;
 
 @Service

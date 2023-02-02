@@ -10,9 +10,7 @@ import org.springframework.ui.Model;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.tech.sprj09.dao.BoardDao;
 import com.tech.sprj09.dao.IDao;
-import com.tech.sprj09.dto.BoardDto;
 
 
 @Service

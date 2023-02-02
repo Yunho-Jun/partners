@@ -20,6 +20,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.tech.sprj09.dao.IDao;
 import com.tech.sprj09.dto.BoardDto;
+import com.tech.sprj09.service.AdminService;
 import com.tech.sprj09.service.BContentUpdateService;
 import com.tech.sprj09.service.BContentViewService;
 import com.tech.sprj09.service.BDeleteService;
@@ -43,14 +44,14 @@ public class AdminController {
 	public String admin(HttpServletRequest request, SearchVO searchVO, Model model) {
 		System.out.println("========admin=======");
 		// db에서 데이터 가져오기
-
+		
 		model.addAttribute("request", request);
 		model.addAttribute("searchVO", searchVO);
 
-		bServiceInter = new BListService(sqlSession);
+		bServiceInter = new AdminService(sqlSession);
 		bServiceInter.execute(model);
 
-		return "admin";
+		return "admin/admin";
 	}
 
 }
