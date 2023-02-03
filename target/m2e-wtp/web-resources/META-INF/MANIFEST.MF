@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: goott4
-=======
-Built-By: goott03
->>>>>>> 60ddf2441f77577e6fe779a00cf374b22a5ff66e
 Build-Jdk: 11.0.16
 Created-By: Maven Integration for Eclipse
 

@@ -86,16 +86,4 @@
 			pointcut-ref="requiredTx" />
 	</aop:config>
 
-	<!-- 웹 소켓핸들러 -->
-	<websocket:handlers
-		allowed-origins="http://172.16.4.17, http://localhost:9100">
-		<websocket:mapping handler="echoHandler" path="/echo" />
-		<websocket:handshake-interceptors>
-			<beans:bean	class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
-		</websocket:handshake-interceptors>
-		<websocket:sockjs />
-	</websocket:handlers>
-	<beans:bean id="echoHandler"
-		class="com.tech.socket.server.EchoHandler" />
-
 </beans:beans>

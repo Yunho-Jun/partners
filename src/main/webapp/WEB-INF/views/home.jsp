@@ -50,6 +50,7 @@ function redeptlist() {
 <P>  The time on the server is ${serverTime}. </P>
 <a href="list">listttttttt go</a>
 <a href="admin">admin list</a>
+<a href="chat">chat</a>
 </body>
 
 
