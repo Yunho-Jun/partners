@@ -3,7 +3,9 @@ package com.tech.sprj09.dto;
 import java.security.Timestamp;
 
 public class MemberDto {
+	public MemberDto() {
 
+	}
 	public int memno; // 회원 고유정보
 	public String memid; // 회원 ID
 	public String mempass; // 회원 PASS

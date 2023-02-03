@@ -2,6 +2,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+
+
+
+
+
+
+
+
+
 <mapper namespace="com.tech.sprj09.dao.IDao">
 	<sql id="includelist">
 		<choose>
@@ -108,7 +118,7 @@
     <!-- admin list -->
     <select id="mlist" resultType="com.tech.sprj09.dto.MemberDto">	
 	
-	
+	SELECT * FROM MEMBER
 		
     </select>
 	

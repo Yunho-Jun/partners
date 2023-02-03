@@ -9,7 +9,7 @@ public class DBCon {
 	public static Connection getConnection() {
 		try {
 			String driver="oracle.jdbc.driver.OracleDriver";
-			String url="jdbc:oracle:thin:@localhost:1521:xe";
+			String url="jdbc:oracle:thin:@172.16.4.3:1521:xe";
 			String user="hr";
 			String pw="123456";
 			Class.forName(driver);

@@ -4,6 +4,8 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="com.tech.sprj09.db.DBCon"%>
 <%@page import="java.sql.Connection"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,7 +28,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 
-<%
+<%-- <%
 	String sql = "select decode(colc,1,'청1',2,'청2',3,'청3',4,'청4',5,'청5') goods,"
 		+ "round(sum(cold)*sum(cole)/1000000) totalsum " + "from sale2 " + "group by colc " + "order by colc";
 
@@ -54,7 +56,7 @@ while (rs.next()) {
 rs.close();
 pstmt.close();
 con.close();
-%>
+%> --%>
 
 
 
@@ -76,7 +78,7 @@ con.close();
                         <span class="nav_name">Messenger</span>
                     </a>
 
-                    <div href="#chart" class="nav__link collapse">
+                 <!--    <div href="#chart" class="nav__link collapse"> -->
                         <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Projects</span>
 
@@ -87,14 +89,14 @@ con.close();
                             <a href="#" class="collapse__sublink">Group</a>
                             <a href="#" class="collapse__sublink">Members</a>
                         </ul>
-                    </div>
+                 <!--    </div> -->
 
                     <a href="#chart" class="nav__link">
                         <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Analytics</span>
                     </a>
 
-                    <div href="#" class="nav__link collapse">
+                  <!--   <div href="#memberchart" class="nav__link collapse"> -->
                         <ion-icon name="people-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Team</span>
 
@@ -105,7 +107,7 @@ con.close();
                             <a href="#" class="collapse__sublink">Group</a>
                             <a href="#" class="collapse__sublink">Members</a>
                         </ul>
-                    </div>
+                  <!--   </div> -->
 
                     <a href="#" class="nav__link">
                         <ion-icon name="settings-outline" class="nav__icon"></ion-icon>
@@ -121,34 +123,11 @@ con.close();
     </div>
 
 	<h1>관리자 페이지</h1>
-	<h1>회원 관리 페이지</h1>
 	
-	<table width="500" border="1">
-   <tr>
-      <td>사원번호</td>
-      <td>사원이름</td>
-      <td>날짜</td>
-      <td>empdeptno</td>
-      <td>deptdname</td>
-   </tr>
-   <c:forEach items="${list }" var="member">
-   <tr>
-      <td>${mamber.empno}</td>
-      
-     
-
-   </tr>
-   </c:forEach>
-   <tr>
-      <td colspan="5"><a href="writeview">글쓰기</a></td>
-   </tr>
-</table>
 	<h3>메시지 관리</h3>
 
-
-
-	<h3>통계</h3>
 	<p id="chart">
+	<h3>통계</h3>
 	<div class="container">
 		<div class="row">
 
@@ -163,7 +142,7 @@ con.close();
 	</p>
 	
 	<!-- chart 구현부분 -->
-	<script type="text/javascript">
+	<%-- <script type="text/javascript">
 		
 		const Chart1 = document.getElementById('Chart1').getContext('2d');
 		const Chart2 = document.getElementById('Chart2').getContext('2d');
@@ -247,7 +226,47 @@ con.close();
 			}
 		});
 	</script>
-
+ --%>
+ 
+ <p id="memberchart">
+	<h1>회원 관리 페이지</h1>
+전체 회원숫자 : ${mlist.size() }
+	<table width="500" border="1">
+					<tr>
+						<td>회원번호</td>
+						<td>회원 ID</td>
+						<td>회원 PASS</td>
+						<td>회원 이름</td>
+						<td>회원 나이</td>
+						<td>회원 성별</td>
+						<td>회원 이메일</td>
+						<td>회원 연락처</td>
+						<td>회원 지역</td>
+						<td>회원 선호메뉴</td>
+						<td>회원 가입일</td>
+						<td>회원 등급</td>
+					</tr>
+					<c:forEach items="${mlist }" var="dto">
+						<tr>
+							<td>${dto.memno }</td>
+							<td>${dto.memid }</td>
+							<td>${dto.mempass }</td>
+							<td>${dto.memname }</td>
+							<td>${dto.membirth }</td>
+							<td>${dto.memsex }</td>
+							<td>${dto.mememail }</td>
+							<td>${dto.mempnum }</td>
+							<td>${dto.memaddress }</td>
+							<td>${dto.memlikemenu }</td>
+							<td>${dto.memjoindate }</td>
+							<td>${dto.memadmin }</td>
+						</tr>
+					</c:forEach>
+					<tr>
+						<td colspan="5"><a href="writeview">글쓰기</a></td>
+					</tr>
+				</table>
+	</p>
 	<!-- JS -->
 	<script src="resources/assets/js/main.js"></script>
 
