@@ -78,7 +78,7 @@ con.close();
                         <span class="nav_name">Messenger</span>
                     </a>
 
-                 <!--    <div href="#chart" class="nav__link collapse"> -->
+                   <div href="#" class="nav__link collapse">
                         <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Projects</span>
 
@@ -89,8 +89,7 @@ con.close();
                             <a href="#" class="collapse__sublink">Group</a>
                             <a href="#" class="collapse__sublink">Members</a>
                         </ul>
-                 <!--    </div> -->
-
+                    </div>
                     <a href="#chart" class="nav__link">
                         <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Analytics</span>
@@ -231,7 +230,7 @@ con.close();
  <p id="memberchart">
 	<h1>회원 관리 페이지</h1>
 전체 회원숫자 : ${mlist.size() }
-	<table width="500" border="1">
+	<table width="1200" border="1">
 					<tr>
 						<td>회원번호</td>
 						<td>회원 ID</td>
