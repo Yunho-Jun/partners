@@ -2,7 +2,6 @@
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="com.tech.sprj09.db.DBCon"%>
 <%@page import="java.sql.Connection"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
