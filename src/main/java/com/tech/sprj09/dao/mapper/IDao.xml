@@ -105,6 +105,11 @@
 	
 	</select>
     
-    
+    <!-- admin list -->
+    <select id="mlist" resultType="com.tech.sprj09.dto.MemberDto">	
+	
+	
+		
+    </select>
 	
 </mapper>

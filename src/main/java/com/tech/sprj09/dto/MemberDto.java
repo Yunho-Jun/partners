@@ -1,4 +1,4 @@
-package com.tech.sprj09.login;
+package com.tech.sprj09.dto;
 
 import java.security.Timestamp;
 
