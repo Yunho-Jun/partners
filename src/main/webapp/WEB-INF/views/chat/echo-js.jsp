@@ -1,48 +1,72 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%
-String path=request.getContextPath();
-System.out.print("path : "+path);
-
-%>
+<%@ page session="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script src="../resources/js/sockjs.min.js"></script>
 <html>
 <head>
-	<title>Home</title>
+    <title>Home</title>
+    <meta charset="UTF-8"/>
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-function redeptlist() {
-	//alert("sign!!!!");
-	var htmltxt="";
-	$.ajax({
-		type:"post",
-		url:"<%=path%>/test/member5",
-		success:function(result){
-			htmltxt="<table border='1'>";
-			
-			for ( var ele in result) {
-				//console.log(result[ele].loc);
-				htmltxt=htmltxt+"<tr><td>no:"+result[ele].id+
-				"</td><td>name:"+result[ele].name+"</td></tr>";
-			}
-			htmltxt=htmltxt+"</table>";
-			$("#display").html(htmltxt);
-		}
-	});	
-}
+    <form id="chatForm">
+        <div class="chat_start_main">
+            상담 CHAT1111
+        </div>
+        <div class="chat_main" style="display:none;">
+            <div class="modal-header" style="height:20%;">
+                상담 CHAT 
+            </div>
+            <div class="modal-content" id="chat" style="height:60%;">
+                
+            </div>
+            <div class="modal-footer">
+                <input type="text" id="message" class="form-control" style="height:20%;" placeholder="메세지를 입력하세요"/>    
+            </div>
+        </div>
+<!--         <button class="">send</button> -->
+    </form>
+    <script>
+//전역변수 선언-모든 홈페이지에서 사용 할 수 있게 index에 저장
+var socket = null;
+$(document).ready(function(){
+    if(!isEmpty($("#session_id").val()))
+            connectWS();
+});
+    $(".chat_start_main").click(function(){
+        $(this).css("display","none");
+        $(".chat_main").css("display","inline");
+    })
+    $(".chat_main .modal-header").click(function(){
+        $(".chat_start_main").css("display","inline");
+        $(".chat_main").css("display","none");
+    });
+ 
+    function connectWS(){
+        var sock = new SockJS("/echo");
+            socket =sock;
+        sock.onopen = function() {
+               console.log('info: connection opened.');
+        };
+        sock.onmessage = function(e){
+             console.log(e);
+             var strArray = e.data.split(":");
+             if(e.data.indexof(":") > -1){
+                 $(".chat_start_main").text(strArray[0]+"님이 메세지를 보냈습니다.");
+             }
+             else{
+             }
+            $("#chat").append(e.data + "<br/>");
+        }
+        sock.onclose = function(){
+            $("#chat").append("연결 종료");
+              setTimeout(function(){conntectWs();} , 10000); 
+        }
+        sock.onerror = function (err) {console.log('Errors : ' , err);};
+ 
+        $("#chatForm").submit(function(event){
+            event.preventDefault();
+                sock.send($("#message").val());
+                $("#message").val('').focus();    
+        });
+    }
 </script>
-
-<h3>db접속 데이터 조회 by RestController</h3>
-<hr />
-<a href="javascript:redeptlist();">restdeptlist</a> <br />
-<hr />
-<div id="display">이곳이 데이터 추가되는 곳</div>
-
-
-<hr />
-<P>  The time on the server is ${serverTime}. </P>
-<a href="list">listttttttt go</a>
 </body>
 </html>
