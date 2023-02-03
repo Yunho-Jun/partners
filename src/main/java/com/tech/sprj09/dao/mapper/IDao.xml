@@ -102,9 +102,6 @@
 	<select id="sonReply" resultType="com.tech.sprj09.dto.BoardDto">
 		SELECT * FROM MBOARD WHERE BGROUP=#{param1}
 			ORDER BY BSTEP ASC
-	
-	</select>
-    
-    
+	</select>    
 	
 </mapper>

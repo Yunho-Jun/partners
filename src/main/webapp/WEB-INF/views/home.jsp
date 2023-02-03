@@ -35,7 +35,7 @@ function redeptlist() {
 </script>
 
 <a href="login">로그인</a>
-<a href="join">회원가입</a>
+<a href="joinview">회원가입</a>
 
 <hr />
 

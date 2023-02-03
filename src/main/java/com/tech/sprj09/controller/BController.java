@@ -1,25 +1,15 @@
 package com.tech.sprj09.controller;
 
-import java.io.FileInputStream;
-import java.net.URLEncoder;
-
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.tech.sprj09.dao.IDao;
-import com.tech.sprj09.dto.BoardDto;
 import com.tech.sprj09.service.BContentUpdateService;
 import com.tech.sprj09.service.BContentViewService;
 import com.tech.sprj09.service.BDeleteService;
@@ -39,19 +29,6 @@ public class BController {
 	@Autowired
 	private SqlSession sqlSession;
 
-	// 회원가입 구현
-	@RequestMapping("/join")
-	public String join(HttpServletRequest request, SearchVO searchVO, Model model) {
-		
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
-
-		bServiceInter = new BListService(sqlSession);
-		bServiceInter.execute(model);
-		
-
-		return "join";
-	}
 
 	// 목록표현
 	@RequestMapping("/list")
@@ -81,6 +58,13 @@ public class BController {
 		System.out.println("========writeview=======");
 		return "writeview";
 	}
+	
+	@RequestMapping("/joinview")
+	public String joinview(Model model) {
+		System.out.println("========joinview=======");
+		return "joinview";
+	}
+
 
 //	글쓰기기능
 	@RequestMapping("/write")
