@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tech.sprj09.db.DBCon;
-import com.tech.sprj09.dto.DeptDto;
 import com.tech.sprj09.dto.Member5Dto;
 
 @RestController

@@ -3,6 +3,7 @@ package com.tech.sprj09.dao;
 import java.util.ArrayList;
 
 import com.tech.sprj09.dto.BoardDto;
+import com.tech.sprj09.dto.MemberDto;
 
 public interface IDao {
 
@@ -38,6 +39,10 @@ public interface IDao {
 
 	public ArrayList<BoardDto> sonReply(int bgroup);
 	// 기본 리스트 ,디테일, 수정 ,삭제 ,리플 , 카테고리별 검색, 하위 리플 삭제 방지 !!끝!!
+	
+	
+	//admin 설정 정리
+	public ArrayList<MemberDto> mlist();
 	
 	
 	
