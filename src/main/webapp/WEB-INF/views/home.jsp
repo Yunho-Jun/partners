@@ -11,44 +11,27 @@ System.out.print("path : "+path);
 	<title>Home</title>
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-function redeptlist() {
-	//alert("sign!!!!");
-	var htmltxt="";
-	$.ajax({
-		type:"post",
-		url:"<%=path%>/test/member5",
-		success:function(result){
-			htmltxt="<table border='1'>";
-			
-			for ( var ele in result) {
-				//console.log(result[ele].loc);
-				htmltxt=htmltxt+"<tr><td>no:"+result[ele].id+
-				"</td><td>name:"+result[ele].name+"</td></tr>";
-			}
-			htmltxt=htmltxt+"</table>";
-			$("#display").html(htmltxt);
-		}
-	});	
-}
-</script>
 
 <a href="login">로그인</a>
+<<<<<<< HEAD
 <a href="joinview">회원가입</a>
+=======
+<a href="joinform">회원가입</a>
+>>>>>>> 01fb8297db1893c730aa535edd3b09383e207276
 
 <hr />
 
-<h3>db접속 데이터 조회 by RestController</h3>
-<hr />
-<a href="javascript:redeptlist();">restdeptlist</a> <br />
-<hr />
-<div id="display">이곳이 데이터 추가되는 곳</div>
+<h2>PARTNERS 홈페이지에 오신걸 환영합니다.</h2>
+
 
 
 <hr />
 <P>  The time on the server is ${serverTime}. </P>
-<a href="list">listttttttt go</a>
-<a href="admin">admin list</a>
+<a href="list">listttttttt go</a> <br />
+<a href="admin">admin list</a> <br />
+<a href="chat">chat</a> <br />
 </body>
+
+
+
 </html>

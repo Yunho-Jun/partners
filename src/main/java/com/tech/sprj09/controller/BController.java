@@ -20,6 +20,8 @@ import com.tech.sprj09.service.BReplyService;
 import com.tech.sprj09.service.BReplyViewService;
 import com.tech.sprj09.service.BServiceInter;
 import com.tech.sprj09.service.BWriteService;
+import com.tech.sprj09.service.JoinService;
+import com.tech.sprj09.service.MemberListService;
 import com.tech.sprj09.vopage.SearchVO;
 
 @Controller
@@ -29,7 +31,10 @@ public class BController {
 	@Autowired
 	private SqlSession sqlSession;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 01fb8297db1893c730aa535edd3b09383e207276
 	// 목록표현
 	@RequestMapping("/list")
 	public String list(HttpServletRequest request, SearchVO searchVO, Model model) {
@@ -173,6 +178,41 @@ public class BController {
 		return "redirect:list";
 	}
 
+	@RequestMapping("/aadmin") // 맵핑중복 에러가나서 aadmin으로 바꿔놓음
+	public String admin(HttpServletRequest request, SearchVO searchVO, Model model) {
+		System.out.println("========admin=======");
+		// db에서 데이터 가져오기
+		
+		model.addAttribute("request", request);
+		model.addAttribute("searchVO", searchVO);
 
+		bServiceInter = new MemberListService(sqlSession);
+		bServiceInter.execute(model);
+
+		return "admin/admin";
+
+	}
+	
+	// 회원가입폼으로
+	@RequestMapping("/joinform")
+	public String joinform(HttpServletRequest request, SearchVO searchVO, Model model) {
+		System.out.println("=============this is joinform============");
+		return "joinform";
+	}
+	
+	// 회원가입 기능 
+	@RequestMapping("/join")
+	public String joinProc(HttpServletRequest request, SearchVO searchVO, Model model) {
+		System.out.println("=============join PROC============");
+		
+		model.addAttribute("request", request);
+		model.addAttribute("searchVO", searchVO);
+
+		bServiceInter = new JoinService(sqlSession);
+		bServiceInter.execute(model);
+
+		return "redirect:login";
+	}
+	
 
 }

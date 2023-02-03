@@ -2,6 +2,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+
+
+
+
+
+
+
+
+
 <mapper namespace="com.tech.sprj09.dao.IDao">
 	<sql id="includelist">
 		<choose>
@@ -52,7 +62,6 @@
     	BDATE,BHIT,BGROUP,BSTEP,BINDENT,FILESRC)
 		VALUES(MBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},
 		SYSDATE,0,MBOARD_SEQ.CURRVAL,0,0,#{param4})
-    
     </insert>
     <select id="contentview"  resultType="com.tech.sprj09.dto.BoardDto">
     	SELECT BID,BNAME,BTITLE,BCONTENT,
@@ -102,6 +111,20 @@
 	<select id="sonReply" resultType="com.tech.sprj09.dto.BoardDto">
 		SELECT * FROM MBOARD WHERE BGROUP=#{param1}
 			ORDER BY BSTEP ASC
+<<<<<<< HEAD
 	</select>    
+=======
 	
+	</select>
+    
+    <!-- admin list -->
+    <select id="mlist" resultType="com.tech.sprj09.dto.MemberDto">	
+	SELECT * FROM MEMBER
+    </select>
+>>>>>>> 01fb8297db1893c730aa535edd3b09383e207276
+	
+	<!-- 회원가입DB Insert -->
+    <insert id="join" >
+    INSERT INTO MEMBER(MEMNO,MEMID,MEMPASS,MEMNAME,MEMBIRTH,MEMSEX,MEMEMAIL,MEMPNUM,MEMADDRESS,MEMLIKEMENU,MEMJOINDATE,MEMADMIN) VALUES(MEMBER_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},SYSDATE,0)
+    </insert>
 </mapper>
