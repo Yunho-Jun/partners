@@ -8,9 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.tech.sprj09.dao.BoardDao;
 import com.tech.sprj09.dao.IDao;
-import com.tech.sprj09.dto.BoardDto;
 
 @Service
 public class BReplyService implements BServiceInter{

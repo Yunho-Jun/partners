@@ -1,8 +1,10 @@
 package com.tech.sprj09.dto;
+
 public class Member5Dto {
 	private String id;
 	private String pass;
 	private String name;
+
 	public String getId() {
 		return id;
 	}
@@ -40,7 +42,4 @@ public class Member5Dto {
 	public Member5Dto() {
 		// TODO Auto-generated constructor stub
 	}
-
-
-
 }
