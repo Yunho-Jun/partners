@@ -44,6 +44,10 @@ public interface IDao {
 	//admin 설정 정리
 	public ArrayList<MemberDto> mlist();
 	
+	//회원가입 DBinsert
+	public void join(String memid, String mempass, String memname, String memsex, String membirth, String mememail,
+			String mempnum, String memaddress, String memlikemenu);
+	
 	
 	
 	
