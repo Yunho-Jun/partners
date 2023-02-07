@@ -37,7 +37,7 @@ public class LoginService implements BServiceInter{
 		System.out.println(mempass);
 		
 		IDao dao=sqlSession.getMapper(IDao.class);
-		 dao.login(memid,mempass);		
+		dao.login(memid,mempass);		
 
 		
 		

@@ -67,6 +67,10 @@ public class BController {
 
 		bServiceInter = new LoginService(sqlSession);
 		bServiceInter.execute(model);
+		
+		d
+	
+		
 
 		return "loginCheck";
 	}
