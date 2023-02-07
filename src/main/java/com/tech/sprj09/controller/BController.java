@@ -21,6 +21,7 @@ import com.tech.sprj09.service.BReplyViewService;
 import com.tech.sprj09.service.BServiceInter;
 import com.tech.sprj09.service.BWriteService;
 import com.tech.sprj09.service.JoinService;
+import com.tech.sprj09.service.LoginService;
 import com.tech.sprj09.service.MemberListService;
 import com.tech.sprj09.vopage.SearchVO;
 
@@ -31,10 +32,7 @@ public class BController {
 	@Autowired
 	private SqlSession sqlSession;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 01fb8297db1893c730aa535edd3b09383e207276
 	// 목록표현
 	@RequestMapping("/list")
 	public String list(HttpServletRequest request, SearchVO searchVO, Model model) {
@@ -50,12 +48,30 @@ public class BController {
 		return "list";
 	}
 //<<<<<<< HEAD=======
-//	로그인기능
+//	로그인 jsp로 가는 기능
 	@RequestMapping("/login")
 	public String login(Model model) {
 		System.out.println("========login=======");
+		
+		
 		return "login";
 	}
+	
+	//로그인 기능 . 
+	@RequestMapping(value="/loginCheck", method = RequestMethod.POST)
+	public String loginCheck(HttpServletRequest request, SearchVO searchVO, Model model) {
+		System.out.println("=============loginCheck============");
+		
+		model.addAttribute("request", request);
+		model.addAttribute("searchVO", searchVO);
+
+		bServiceInter = new LoginService(sqlSession);
+		bServiceInter.execute(model);
+
+		return "loginCheck";
+	}
+
+	
 //>>>>>>> origin/jeaho
 //	글쓰기폼기능
 	@RequestMapping("/writeview")
@@ -193,7 +209,7 @@ public class BController {
 
 	}
 	
-	// 회원가입폼으로
+	// 회원가입폼으로 뷰로이동. 
 	@RequestMapping("/joinform")
 	public String joinform(HttpServletRequest request, SearchVO searchVO, Model model) {
 		System.out.println("=============this is joinform============");

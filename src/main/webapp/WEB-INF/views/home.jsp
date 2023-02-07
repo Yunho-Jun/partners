@@ -13,11 +13,10 @@ System.out.print("path : "+path);
 <body>
 
 <a href="login">로그인</a>
-<<<<<<< HEAD
-<a href="joinview">회원가입</a>
-=======
+
+
 <a href="joinform">회원가입</a>
->>>>>>> 01fb8297db1893c730aa535edd3b09383e207276
+
 
 <hr />
 

@@ -47,7 +47,12 @@ public interface IDao {
 	//회원가입 DBinsert
 	public void join(String memid, String mempass, String memname, String memsex, String membirth, String mememail,
 			String mempnum, String memaddress, String memlikemenu);
+
+	//로그인 서비스에서 넘어옴. 
+	public void login(String memid, String mempass);
 	
+	
+
 	
 	
 	

@@ -3,23 +3,7 @@ package com.tech.sprj09.dto;
 import java.security.Timestamp;
 
 public class MemberDto {
-	public MemberDto() {
 
-<<<<<<< HEAD
-	private int memno; // 회원 고유정보
-	private String memid; // 회원 ID
-	private String mempass; // 회원 PASS
-	private String memname; // 회원 이름
-	private String membirth; // 회원 나이
-	private String memsex; // 회원 성별
-	private String mememail; // 회원 이메일
-	private String mempnum; // 회원 연락처
-	private String memaddress;// 회원지역
-	private String memlikemenu; // 회원이 선호하는 메뉴
-	private Timestamp memjoindate; // 회원가입일
-	private int memadmin; // ADMIN인지 일반 회원인지 구분하는 ...
-=======
-	}
 	public int memno; // 회원 고유정보
 	public String memid; // 회원 ID
 	public String mempass; // 회원 PASS
@@ -32,7 +16,7 @@ public class MemberDto {
 	public String memlikemenu; // 회원이 선호하는 메뉴 (선호메뉴)
 	public Timestamp memjoindate; // 회원가입일
 	public int memadmin; // ADMIN인지 일반 회원인지 구분하는 ...
->>>>>>> 01fb8297db1893c730aa535edd3b09383e207276
+
 	
 	
 	public int getMemno() {
