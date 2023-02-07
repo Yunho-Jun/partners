@@ -1,5 +1,7 @@
 package com.tech.sprj09.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,7 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tech.sprj09.dao.IDao;
+import com.tech.sprj09.dto.MemberDto;
 import com.tech.sprj09.service.BContentUpdateService;
 import com.tech.sprj09.service.BContentViewService;
 import com.tech.sprj09.service.BDeleteService;
@@ -189,19 +194,49 @@ public class BController {
 		return "joinform";
 	}
 	
+	// 회원가입폼으로 버전2
+	@RequestMapping("/joinform1")
+	public String joinform1(HttpServletRequest request, SearchVO searchVO, Model model) {
+		System.out.println("=============this is joinform============");
+		return "joinform1";
+	}
+	
 	// 회원가입 기능 
 	@RequestMapping("/join")
 	public String joinProc(HttpServletRequest request, SearchVO searchVO, Model model) {
 		System.out.println("=============join PROC============");
 		
 		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
 
 		bServiceInter = new JoinService(sqlSession);
 		bServiceInter.execute(model);
-
+		
 		return "redirect:login";
 	}
 	
+	// id중복조회
+	@ResponseBody
+	@RequestMapping(value = "/usingId_chk", produces = "text/plain")
+	public String idCheck(HttpServletRequest request, HttpServletResponse reponse, Model model) {
+		System.out.println("=======usingId_chk==========");
+		
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+		String memid = request.getParameter("memid");
+		System.out.println("memid컨트롤 : " + memid);
+//		MemberDto dto = new MemberDto();
+//		dto.setMemid(memid);
+		
+		IDao dao=sqlSession.getMapper(IDao.class);
+		int using_user = dao.loginLookup(memid);
+		System.out.println("using_user"+using_user);
+		String result = "" + using_user; // 숫자를 문자열로 변환
+
+		return result;
+	}
 }

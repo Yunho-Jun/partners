@@ -121,6 +121,16 @@
 	
 	<!-- 회원가입DB Insert -->
     <insert id="join" >
-    INSERT INTO MEMBER(MEMNO,MEMID,MEMPASS,MEMNAME,MEMBIRTH,MEMSEX,MEMEMAIL,MEMPNUM,MEMADDRESS,MEMLIKEMENU,MEMJOINDATE,MEMADMIN) VALUES(MEMBER_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},SYSDATE,0)
+    INSERT INTO MEMBER(MEMNO,MEMID,MEMPASS,MEMNAME,MEMBIRTH,MEMSEX,MEMEMAIL,MEMPNUM,MEMADDRESS,MEMLIKEMENU,MEMJOINDATE,MEMADMIN) 
+    VALUES(MEMBER_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},SYSDATE,0)
     </insert>
+    
+    <!-- ID중복체크 -->
+    <select id="loginLookup" resultType="Int">	
+	SELECT COUNT(MEMID) 
+	FROM MEMBER
+	WHERE MEMID LIKE #{param1}
+    </select>    
+    
+    
 </mapper>

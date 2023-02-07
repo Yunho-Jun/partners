@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+
+<!-- joinform1 로 대체 됨 -->
+
+
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,11 +40,11 @@
 			이메일 : <input type="email" name="mememail" />
 		<br /> 핸드폰 번호 : <input type="tel" name="mempnum" /> 예) 010-1111-2222
 		<p>활동지역 :</p>
-		<input type="checkbox" name="memaddress" value="가산" />가산 
-		<input type="checkbox" name="memaddress" value="구로" />구로 <input
-			type="checkbox" name="memaddress" value="강남" />강남 <input
-			type="checkbox" name="memaddress" value="여의도" />여의도 <input
-			type="checkbox" name="memaddress" value="판교" />판교 <br /> 
+          	<input type="checkbox" name="memaddress" value="가산" />가산 
+		    <input type="checkbox" name="memaddress" value="구로" />구로 
+		    <input type="checkbox" name="memaddress" value="강남" />강남 
+		    <input type="checkbox" name="memaddress" value="여의도" />여의도 
+		    <input type="checkbox" name="memaddress" value="판교" />판교 <br /> 
 			
 		<p>선호음식</p>
 		<input type="checkbox" name="memlikemenu" value="한식" />한식 <input

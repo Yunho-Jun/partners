@@ -2,6 +2,11 @@ package com.tech.sprj09.dto;
 
 import java.security.Timestamp;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class MemberDto {
 	public MemberDto() {
 
