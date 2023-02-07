@@ -43,16 +43,23 @@ public interface IDao {
 	
 	//admin 설정 정리
 	public ArrayList<MemberDto> mlist();
-	
-	//회원가입 DBinsert
-	public void join(String memid, String mempass, String memname, String memsex, String membirth, String mememail,
-			String mempnum, String memaddress, String memlikemenu);
 
-	//로그인 서비스에서 넘어옴. 
-	public void login(String memid, String mempass);
-	
-	
+	public MemberDto memberview(String bid);
 
+	public void memberdelete(String bid);
+
+	public void membermodify(String bid, String memadmin);
+
+	public ArrayList<MemberDto> clist();
+
+	public int selectMemeberTotCount1(String searchKeyword);
+
+	public int selectMemeberTotCount2(String searchKeyword);
+
+	public int selectMemeberTotCount3(String searchKeyword);
+
+	public int selectMemeberTotCount4(String searchKeyword);
+	
 	
 	
 	

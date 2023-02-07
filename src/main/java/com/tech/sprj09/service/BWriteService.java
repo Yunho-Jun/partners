@@ -15,6 +15,7 @@ import com.tech.sprj09.dao.IDao;
 
 @Service
 public class BWriteService implements BServiceInter{
+
 	
 	private SqlSession sqlSession;
 	
