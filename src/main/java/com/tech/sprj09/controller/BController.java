@@ -211,34 +211,10 @@ public class BController {
 		return "joinform";
 	}
 	
-	// 회원가입 기능 
-	@RequestMapping("/join")
-	public String joinProc(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("=============join PROC============");
-		
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
-
-<<<<<<< HEAD
-		bServiceInter = new JoinService(sqlSession);
-		bServiceInter.execute(model);
-
-		return "redirect:login";
-	}
 	
-=======
-<<<<<<< HEAD
-		return "admin/admin";
->>>>>>> b6bf9fdbb517a586fba3d0cfd42e53e1c6bb6a03
 
-	}
 	
-	// 회원가입폼으로
-	@RequestMapping("/joinform")
-	public String joinform(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("=============this is joinform============");
-		return "joinform";
-	}
+	
 	
 	// 회원가입폼으로 버전2
 	@RequestMapping("/joinform1")
@@ -272,8 +248,6 @@ public class BController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-=======
->>>>>>> 012047ff08bd6dce1affb38d520392a9d6d356eb
 
 		String memid = request.getParameter("memid");
 		System.out.println("memid컨트롤 : " + memid);
