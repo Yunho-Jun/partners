@@ -59,6 +59,11 @@ public interface IDao {
 	public int selectMemeberTotCount3(String searchKeyword);
 
 	public int selectMemeberTotCount4(String searchKeyword);
+
+	public void login(String memid, String mempass);
+
+	public void join(String memid, String mempass, String memname, String membirth, String memsex, String mememail,
+			String mempnum, String memaddress, String memlikemenu);
 	
 	
 	

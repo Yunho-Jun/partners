@@ -124,7 +124,6 @@
 	</select>
 
 
-<<<<<<< HEAD
 	
 	<!-- 회원가입DB Insert -->
     <insert id="join" >
@@ -135,11 +134,10 @@
      <!-- 로그인 성공시 1  실패시 카운트 되지 않음 -->
      
      
-     <select id="loginCheck" resultType="com.tech.sprj09.dto.MemberDto">
+     <select id="login" resultType="com.tech.sprj09.dto.MemberDto">
      SELECT MEMID, MEMPASS FROM MEMBER WHERE MEMID = #{param1} AND MEMPASS = #{param2}
      </select>
     
-    
-=======
->>>>>>> f9a12838be8e8feadbfa5251834786c5c24ffb10
+ 
+
 </mapper>
