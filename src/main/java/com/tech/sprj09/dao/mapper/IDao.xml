@@ -127,9 +127,20 @@
 	
 	<!-- 회원가입DB Insert -->
     <insert id="join" >
-    INSERT INTO MEMBER(MEMNO,MEMID,MEMPASS,MEMNAME,MEMBIRTH,MEMSEX,MEMEMAIL,MEMPNUM,MEMADDRESS,MEMLIKEMENU,MEMJOINDATE,MEMADMIN) VALUES(MEMBER_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},SYSDATE,0)
+    INSERT INTO MEMBER(MEMNO,MEMID,MEMPASS,MEMNAME,MEMBIRTH,MEMSEX,MEMEMAIL,MEMPNUM,MEMADDRESS,MEMLIKEMENU,MEMJOINDATE,MEMADMIN) 
+    VALUES(MEMBER_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},SYSDATE,0)
     </insert>
     
+<<<<<<< HEAD
+    <!-- ID중복체크 -->
+    <select id="loginLookup" resultType="Int">	
+	SELECT COUNT(MEMID) 
+	FROM MEMBER
+	WHERE MEMID LIKE #{param1}
+    </select>    
+    
+    
+=======
      <!-- 로그인db -->
      <!-- 로그인 성공시 1  실패시 카운트 되지 않음 -->
      
@@ -138,6 +149,13 @@
      SELECT MEMID, MEMPASS FROM MEMBER WHERE MEMID = #{param1} AND MEMPASS = #{param2}
      </select>
     
+<<<<<<< HEAD
  
 
+=======
+    
+=======
+>>>>>>> f9a12838be8e8feadbfa5251834786c5c24ffb10
+>>>>>>> 012047ff08bd6dce1affb38d520392a9d6d356eb
+>>>>>>> b6bf9fdbb517a586fba3d0cfd42e53e1c6bb6a03
 </mapper>

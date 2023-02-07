@@ -4,6 +4,10 @@ import java.security.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 012047ff08bd6dce1affb38d520392a9d6d356eb
 @Getter
 @Setter
 public class MemberDto {

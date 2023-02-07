@@ -43,6 +43,12 @@ public interface IDao {
 	
 	//admin 설정 정리
 	public ArrayList<MemberDto> mlist();
+<<<<<<< HEAD
+	
+	//회원가입 DBinsert
+	public void join(String memid, String mempass, String memname, String memsex, String membirth, String mememail,
+			String mempnum, String memaddress, String memlikemenu);
+=======
 
 	public MemberDto memberview(String bid);
 
@@ -69,5 +75,8 @@ public interface IDao {
 	
 	
 	
+>>>>>>> 012047ff08bd6dce1affb38d520392a9d6d356eb
 
+	public int loginLookup(String memid);
+	
 }
