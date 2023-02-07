@@ -21,7 +21,7 @@
 <body>
 
 	<div style="text-align: right;">
-		<a href="login">로그인</a>|<a href="#">회원가입</a>
+		<a href="login">로그인</a>|<a href="joinform">회원가입</a>
 	</div>
 
 	<div class="jumbotron text-left" style="text-align: center">

@@ -25,8 +25,8 @@ import com.tech.sprj09.service.BReplyService;
 import com.tech.sprj09.service.BReplyViewService;
 import com.tech.sprj09.service.BServiceInter;
 import com.tech.sprj09.service.BWriteService;
-import com.tech.sprj09.service.JoinService;
-import com.tech.sprj09.service.MemberListService;
+import com.tech.sprj09.service.admin.MemberListService;
+import com.tech.sprj09.service.admin.MemberViewService;
 import com.tech.sprj09.vopage.SearchVO;
 
 @Controller
@@ -35,6 +35,20 @@ public class BController {
 
 	@Autowired
 	private SqlSession sqlSession;
+
+	// 회원가입 구현
+	@RequestMapping("/join")
+	public String join(HttpServletRequest request, SearchVO searchVO, Model model) {
+		
+		model.addAttribute("request", request);
+		model.addAttribute("searchVO", searchVO);
+
+		bServiceInter = new BListService(sqlSession);
+		bServiceInter.execute(model);
+		
+
+		return "join";
+	}
 
 	// 목록표현
 	@RequestMapping("/list")
@@ -57,6 +71,29 @@ public class BController {
 		System.out.println("========login=======");
 		return "login";
 	}
+<<<<<<< HEAD
+	
+	//로그인 기능 . 
+	@RequestMapping(value="/loginCheck", method = RequestMethod.POST)
+	public String loginCheck(HttpServletRequest request, SearchVO searchVO, Model model) {
+		System.out.println("=============loginCheck============");
+		
+		model.addAttribute("request", request);
+		model.addAttribute("searchVO", searchVO);
+
+		bServiceInter = new LoginService(sqlSession);
+		bServiceInter.execute(model);
+		
+		d
+	
+		
+
+		return "loginCheck";
+	}
+
+	
+=======
+>>>>>>> f9a12838be8e8feadbfa5251834786c5c24ffb10
 //>>>>>>> origin/jeaho
 //	글쓰기폼기능
 	@RequestMapping("/writeview")
@@ -172,17 +209,9 @@ public class BController {
 		return "redirect:list";
 	}
 
-	@RequestMapping("/aadmin") // 맵핑중복 에러가나서 aadmin으로 바꿔놓음
-	public String admin(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("========admin=======");
-		// db에서 데이터 가져오기
-		
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
 
-		bServiceInter = new MemberListService(sqlSession);
-		bServiceInter.execute(model);
 
+<<<<<<< HEAD
 		return "admin/admin";
 
 	}
@@ -226,6 +255,8 @@ public class BController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+=======
+>>>>>>> 012047ff08bd6dce1affb38d520392a9d6d356eb
 
 		String memid = request.getParameter("memid");
 		System.out.println("memid컨트롤 : " + memid);
