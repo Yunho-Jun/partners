@@ -20,9 +20,8 @@ import com.tech.sprj09.service.BReplyService;
 import com.tech.sprj09.service.BReplyViewService;
 import com.tech.sprj09.service.BServiceInter;
 import com.tech.sprj09.service.BWriteService;
-import com.tech.sprj09.service.JoinService;
-import com.tech.sprj09.service.LoginService;
-import com.tech.sprj09.service.MemberListService;
+import com.tech.sprj09.service.admin.MemberListService;
+import com.tech.sprj09.service.admin.MemberViewService;
 import com.tech.sprj09.vopage.SearchVO;
 
 @Controller
@@ -32,6 +31,19 @@ public class BController {
 	@Autowired
 	private SqlSession sqlSession;
 
+	// 회원가입 구현
+	@RequestMapping("/join")
+	public String join(HttpServletRequest request, SearchVO searchVO, Model model) {
+		
+		model.addAttribute("request", request);
+		model.addAttribute("searchVO", searchVO);
+
+		bServiceInter = new BListService(sqlSession);
+		bServiceInter.execute(model);
+		
+
+		return "join";
+	}
 
 	// 목록표현
 	@RequestMapping("/list")
@@ -48,30 +60,12 @@ public class BController {
 		return "list";
 	}
 //<<<<<<< HEAD=======
-//	로그인 jsp로 가는 기능
+//	로그인기능
 	@RequestMapping("/login")
 	public String login(Model model) {
 		System.out.println("========login=======");
-		
-		
 		return "login";
 	}
-	
-	//로그인 기능 . 
-	@RequestMapping(value="/loginCheck", method = RequestMethod.POST)
-	public String loginCheck(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("=============loginCheck============");
-		
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
-
-		bServiceInter = new LoginService(sqlSession);
-		bServiceInter.execute(model);
-
-		return "loginCheck";
-	}
-
-	
 //>>>>>>> origin/jeaho
 //	글쓰기폼기능
 	@RequestMapping("/writeview")
@@ -79,13 +73,6 @@ public class BController {
 		System.out.println("========writeview=======");
 		return "writeview";
 	}
-	
-	@RequestMapping("/joinview")
-	public String joinview(Model model) {
-		System.out.println("========joinview=======");
-		return "joinview";
-	}
-
 
 //	글쓰기기능
 	@RequestMapping("/write")
@@ -194,41 +181,7 @@ public class BController {
 		return "redirect:list";
 	}
 
-	@RequestMapping("/aadmin") // 맵핑중복 에러가나서 aadmin으로 바꿔놓음
-	public String admin(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("========admin=======");
-		// db에서 데이터 가져오기
-		
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
 
-		bServiceInter = new MemberListService(sqlSession);
-		bServiceInter.execute(model);
 
-		return "admin/admin";
-
-	}
-	
-	// 회원가입폼으로 뷰로이동. 
-	@RequestMapping("/joinform")
-	public String joinform(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("=============this is joinform============");
-		return "joinform";
-	}
-	
-	// 회원가입 기능 
-	@RequestMapping("/join")
-	public String joinProc(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("=============join PROC============");
-		
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
-
-		bServiceInter = new JoinService(sqlSession);
-		bServiceInter.execute(model);
-
-		return "redirect:login";
-	}
-	
 
 }

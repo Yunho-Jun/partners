@@ -1,5 +1,6 @@
-package com.tech.sprj09.service;
+package com.tech.sprj09.service.admin;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,37 +10,36 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.tech.sprj09.dao.IDao;
+import com.tech.sprj09.dto.BoardDto;
+import com.tech.sprj09.service.BServiceInter;
+
 
 @Service
-public class LoginService implements BServiceInter{
+public class MemberDeleteService implements BServiceInter{
 
 	private SqlSession sqlSession;
 	
-	public LoginService(SqlSession sqlSession) {
+	public MemberDeleteService(SqlSession sqlSession) {
 		this.sqlSession=sqlSession;
 	}
-
 	
 	@Override
 	public void execute(Model model) {
-		// TODO Auto-generated method stub
+		System.out.println(">>>MemberDeleteService");
 		
-		System.out.println(">>>LoginSerivce");
-		
-		
+//		model에서 request를 풀기
+//		model을 Map로 변환
 		Map<String, Object> map=model.asMap();
 		HttpServletRequest request=
 				(HttpServletRequest)map.get("request");
-		String memid=request.getParameter("memid");
-		String mempass= request.getParameter("mempass");
 		
-		System.out.println(memid);
-		System.out.println(mempass);
 		
+		String bid=request.getParameter("bid");
 		IDao dao=sqlSession.getMapper(IDao.class);
-		 dao.login(memid,mempass);		
-
-		
-		
+//		BoardDao dao=new BoardDao();
+		dao.memberdelete(bid);
+	
 	}
+	
+
 }
