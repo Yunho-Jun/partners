@@ -38,38 +38,13 @@ public interface IDao {
 	public int selectBoardTotCount4(String searchKeyword);
 
 	public ArrayList<BoardDto> sonReply(int bgroup);
-	// 기본 리스트 ,디테일, 수정 ,삭제 ,리플 , 카테고리별 검색, 하위 리플 삭제 방지 !!끝!!
-	
-	
-	//admin 설정 정리
-	public ArrayList<MemberDto> mlist();
-
-	
-
-	public MemberDto memberview(String bid);
-
-	public void memberdelete(String bid);
-
-	public void membermodify(String bid, String memadmin);
-
-	public ArrayList<MemberDto> clist();
-
-	public int selectMemeberTotCount1(String searchKeyword);
-
-	public int selectMemeberTotCount2(String searchKeyword);
-
-	public int selectMemeberTotCount3(String searchKeyword);
-
-	public int selectMemeberTotCount4(String searchKeyword);
-
 	
 	//회원가입 DBinsert
 	public void join(String memid, String mempass, String memname, String memsex, String membirth, String mememail,
 			String mempnum, String memaddress, String memlikemenu);
 
-	public void login(String memid, String mempass);
-
-
 	public int loginLookup(String memid);
+
+	public MemberDto login(String memid, String mempass);
 	
 }

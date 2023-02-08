@@ -1,4 +1,4 @@
-package com.tech.chat.vo;
+package com.tech.sprj09.chat.vo;
 
 public class ChatClient {
 

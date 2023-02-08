@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tech.sprj09.dao.IDao;
-import com.tech.sprj09.dto.MemberDto;
 import com.tech.sprj09.service.BContentUpdateService;
 import com.tech.sprj09.service.BContentViewService;
 import com.tech.sprj09.service.BDeleteService;
@@ -26,7 +25,6 @@ import com.tech.sprj09.service.BReplyViewService;
 import com.tech.sprj09.service.BServiceInter;
 import com.tech.sprj09.service.BWriteService;
 import com.tech.sprj09.service.JoinService;
-import com.tech.sprj09.service.LoginService;
 import com.tech.sprj09.vopage.SearchVO;
 
 @Controller
@@ -35,7 +33,6 @@ public class BController {
 
 	@Autowired
 	private SqlSession sqlSession;
-
 
 	// 목록표현
 	@RequestMapping("/list")
@@ -51,49 +48,13 @@ public class BController {
 
 		return "list";
 	}
-//<<<<<<< HEAD=======
-//	로그인 jsp로 가는 기능
-	@RequestMapping("/login")
-	public String login(Model model) {
-		System.out.println("========login=======");
-		
-		
-		return "login";
-	}
-	
-	//로그인 기능 . 
-	@RequestMapping(value="/loginCheck", method = RequestMethod.POST)
-	public String loginCheck(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("=============loginCheck============");
-		
-		model.addAttribute("request", request);
-		model.addAttribute("searchVO", searchVO);
 
-		bServiceInter = new LoginService(sqlSession);
-		bServiceInter.execute(model);
-		
-	
-	
-		
-
-		return "loginCheck";
-	}
-
-	
-//>>>>>>> origin/jeaho
 //	글쓰기폼기능
 	@RequestMapping("/writeview")
 	public String writeview(Model model) {
 		System.out.println("========writeview=======");
 		return "writeview";
 	}
-	
-	@RequestMapping("/joinview")
-	public String joinview(Model model) {
-		System.out.println("========joinview=======");
-		return "joinview";
-	}
-
 
 //	글쓰기기능
 	@RequestMapping("/write")
@@ -201,22 +162,8 @@ public class BController {
 
 		return "redirect:list";
 	}
-
-
 	
-	// 회원가입폼으로 뷰로이동. 
-	@RequestMapping("/joinform")
-	public String joinform(HttpServletRequest request, SearchVO searchVO, Model model) {
-		System.out.println("=============this is joinform============");
-		return "joinform";
-	}
-	
-	
-
-	
-	
-	
-	// 회원가입폼으로 버전2
+	// 회원가입폼으로
 	@RequestMapping("/joinform1")
 	public String joinform1(HttpServletRequest request, SearchVO searchVO, Model model) {
 		System.out.println("=============this is joinform============");

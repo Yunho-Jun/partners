@@ -1,4 +1,4 @@
-package com.tech.chat.web;
+package com.tech.chat.sprj09.web;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import com.tech.chat.vo.ChatClient;
+import com.tech.sprj09.chat.vo.ChatClient;
 
 @ServerEndpoint("/chat")
 public class WebChatServer extends HttpServlet{

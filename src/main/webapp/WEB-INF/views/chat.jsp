@@ -117,10 +117,9 @@
 
 <script type="text/javascript">
 	
-
 	var textarea = document.getElementById("chat-container");
 //	var webSocket = new WebSocket('ws://172.16.4.15:9100/chat9/chat'); //인웅localhost
-	var webSocket = new WebSocket('ws://172.16.4.17:9100/partners/chat');
+	var webSocket = new WebSocket('ws://@172.16.4.17:9100/sprj09/chat'); //오욱localhost
 	
 	// 로컬에서 테스트할 때 사용하는 URL입니다.
 // 	var webSocket = new WebSocket('ws://localhost/DevEricServers/webChatServer');
@@ -158,7 +157,8 @@
 	}
 	
 	function onError(e){
-		alert(e.data);
+//		alert(e.data);
+		alert("연결실패");
 	}
 	
 	function send(){
