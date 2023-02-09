@@ -47,6 +47,17 @@
 		background: #9bbbd4;
 	}
 	
+	/* #userlist{
+		vertical-align: bottom;
+		border: 1px solid black;
+		margin:10px;
+		min-height: 600px;
+		max-height: 600px;
+		overflow: scroll;
+		overflow-x:hidden;
+		background: #9bbbd4;
+	} */
+	
 	.chat{
 		font-size: 20px;
 		color:black;
@@ -104,14 +115,17 @@
 <body>
 <h3>chat</h3>
 
-	<div id="main-container">
-		<div id="chat-container">
-		</div>
-		<div id="bottom-container">
-			<input id="inputMessage" type="text">
-			<input id="btn-submit" type="submit" value="전송" >
-		</div>
+<div id="main-container">
+	<div id="chat-container">
 	</div>
+	<div id="bottom-container">
+		<input id="inputMessage" type="text">
+		<input id="btn-submit" type="submit" value="전송" >
+	</div>
+</div>
+<!-- <div id="userlist">
+		
+</div> -->
 
 </body>
 
@@ -139,7 +153,27 @@
 	function onMessage(e){
 		var chatMsg = event.data;
 		var date = new Date();
-		var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(); //시간
+		var ampm = "오전";
+		var hours = String(date.getHours()).padStart(2, "0"); //시계 두자릿수 출력
+		var min = String(date.getMinutes()).padStart(2, "0");
+		//var sec = String(date.getSeconds()).padStart(2, "0");
+		
+		//시간 앞에 오전,오후 출력 
+		if (hours > 12) {
+			hours = hours - 12;
+			ampm = "오후";
+		}
+		if(hours == 0) {
+            hours = 12;
+         }
+		if(hours == 12){
+        	ampm = "오후"
+        }
+		
+		//var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(); //시간
+		//var dateInfo = hours + ":" + min + ":" + sec;
+		var dateInfo = ampm + hours + ":" + min;
+		
 		if(chatMsg.substring(0,6) == 'server'){
 			var $chat = $("<div class='chat notice'>" + chatMsg + "</div>");
 			$('#chat-container').append($chat);
@@ -153,6 +187,7 @@
 	}
 	
 	function onOpen(e){
+		//alert("hi");
 		textarea.value += "==== Connected Eric Chat Server ===\n";
 	}
 	
@@ -167,7 +202,25 @@
 			return;
 		}
 		var date = new Date();
-		var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+		var ampm = "오전";
+		var hours = String(date.getHours()).padStart(2, "0");
+		var min = String(date.getMinutes()).padStart(2, "0");
+		//var sec = String(date.getSeconds()).padStart(2, "0");
+		
+		if (hours > 12) {
+			hours = hours - 12;
+			ampm = "오후";
+		}
+		if(hours == 0) {
+            hours = 12;
+         }
+		if(hours == 12){
+        	ampm = "오후"
+        }
+		
+		//var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+		//var dateInfo = hours + ":" + min + ":" + sec;
+		var dateInfo = ampm + hours + ":" + min;
 		var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
 		$('#chat-container').append($chat);
 		webSocket.send(chatMsg);
@@ -190,5 +243,32 @@
 		});
 		
 	})
+	
+	//새로고침 방지
+	// Ctrl+R, Ctrl+N, F5 키 막음
+	function doNotReload(){
+    	if((event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82))
+        	|| (event.keyCode == 116) )
+    	{
+      	event.keyCode = 0;
+      	event.cancelBubble = true;
+      	event.returnValue = false;
+ 		alert("새로고침 방지");
+    	}
+	}
+	document.onkeydown = doNotReload;
+
+	//F5키를 막는 방법
+	/* function noEvent() {
+	    if (event.keyCode == 116) {
+	        event.keyCode= 2;
+	        return false;
+	    }
+	    else if(event.ctrlKey && (event.keyCode==78 || event.keyCode == 82))
+	    {
+	        return false;
+	    }
+	}
+	document.onkeydown = noEvent; */
 </script>
 </html>
