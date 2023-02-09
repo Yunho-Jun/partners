@@ -31,6 +31,37 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 
+<<<<<<< HEAD
+=======
+<%--  <%
+	String sql = "SELECT DECODE (MEMADMIN,0,'파트너',1,'식당파트너',2,'관리자') LV, COUNT(MEMNO) SUM FROM MEMBER GROUP BY MEMADMIN";
+
+//db 접속
+Connection con = DBCon.getConnection();
+PreparedStatement pstmt = con.prepareStatement(sql);
+ResultSet rs = pstmt.executeQuery();
+//데이터 json 처리ㅣ
+
+JSONArray arr = new JSONArray();
+while (rs.next()) {
+	JSONObject obj = new JSONObject();
+	String lv = rs.getString("LV");
+	String sum = rs.getString("SUM");
+
+	obj.put("lv", lv);
+	obj.put("sum", sum);
+	if (obj != null) {
+		arr.add(obj);
+	}
+}
+rs.close();
+pstmt.close();
+con.close();
+%> 
+ --%>
+
+
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 <body id="body-pd">
 	<div class="l-navbar" id="navbar">
 		<nav class="nav">
@@ -40,6 +71,10 @@
 					<a href="#" class="nav__logo">파트너스</a>
 				</div>
 				<div class="nav__list">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 					
 					<a href="/partners" class="nav__link active"> 
 					<ion-icon name="home-outline" class="nav__icon"> </ion-icon> 
@@ -64,6 +99,40 @@
 					<a href="#" class="nav__link"> 
 					<ion-icon name="settings-outline" class="nav__icon"></ion-icon> 
 					<span class="nav_name">Settings</span>
+<<<<<<< HEAD
+=======
+=======
+					<a href="#" class="nav__link active"> <ion-icon
+							name="home-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">홈으로</span>
+					</a> <a href="#" class="nav__link"> <ion-icon
+							name="chatbubbles-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">Messenger</span>
+					</a> <a href="#chart" class="nav__link"> <ion-icon
+							name="pie-chart-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">Analytics</span>
+					</a>
+
+					<div href="#" class="nav__link active">
+						<ion-icon name="people-outline" class="nav__icon"></ion-icon>
+						<span class="nav_name">Team</span>
+
+						<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+						<ul class="collapse__menu">
+							<a href="#" class="collapse__sublink">Data</a>
+							<br />
+							<a href="#" class="collapse__sublink">Group</a>
+							<br />
+							<a href="#memberchart" class="collapse__sublink">Members</a>
+						</ul>
+					</div>
+
+					<a href="#" class="nav__link"> <ion-icon
+							name="settings-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">Settings</span>
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 					</a>
 				</div>
 				<a href="#" class="nav__link"> <ion-icon name="log-out-outline"
@@ -90,12 +159,26 @@
 				<canvas id="Chart2" width="400" height="400"></canvas>
 			</div>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 
 		</div>
 		<div class="row">
 			<div class="col-md-4">
 				<canvas id="Chart3" width="400" height="400"></canvas>
 			</div>
+<<<<<<< HEAD
+=======
+=======
+			<div class="col-md-4">
+				<canvas id="Chart3" width="400" height="400"></canvas>
+			</div>
+		</div>
+		<div class="row">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 			<div class="col-md-4">
 				<canvas id="Chart4" width="400" height="400"></canvas>
 			</div>
@@ -215,6 +298,10 @@
 		      }
 		    }
 		  });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 		const barChart4 = new Chart(Chart4, {
 			type : 'bar',
 			data : {
@@ -245,6 +332,11 @@
 				}
 			}
 		});
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 
 	</script>
 
@@ -254,6 +346,10 @@
 
 	<div
 		style="overflow-x: hidden; width: 80%; height: 500px; margin-left: 150px">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 		<p id="memberchart">
 		<form action="admin#memberchart" method="post">
 			<div class="search">
@@ -266,6 +362,24 @@
 		</form>
 
 
+<<<<<<< HEAD
+=======
+=======
+
+		<form action="admin#memberchart" method="post">
+			<div class="search">
+				<select class="search-select" name="searchType">
+					<option value="memid">memid</option>
+					<option value="memname">name</option>
+				</select>
+				<input type="text" class="search-input" name="searchName"/>
+				<button type="submit" class="btn search-bnt"> 검색</button>
+			</div>
+		</form>
+
+		<p id="memberchart">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 		<h1>회원 관리 페이지</h1>
 		전체 회원숫자 : ${mlist.size() }
 		<table width="1200" border="1">

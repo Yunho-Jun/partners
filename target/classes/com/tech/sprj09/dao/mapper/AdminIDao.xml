@@ -7,7 +7,15 @@
 <mapper namespace="com.tech.sprj09.dao.IDao">
 
 	<!-- admin list -->
+<<<<<<< HEAD
  	<sql id="includelist1">
+=======
+<<<<<<< HEAD
+ 	<sql id="includelist1">
+=======
+	<sql id="includelist1">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 		<choose>
 			<when test="param2==1">
 				WHERE MEMID LIKE '%'||#{param1}||'%'
@@ -15,7 +23,20 @@
 			<when test="param2==2">
 				WHERE MEMNAME LIKE '%'||#{param1}||'%'
 			</when>
+<<<<<<< HEAD
 			<when test="param2==null">
+=======
+<<<<<<< HEAD
+			<when test="param2==null">
+=======
+			<when test="param2==3">
+				WHERE MEMID LIKE '%'||#{param1}||'%' OR MEMNAME
+				LIKE
+				'%'||#{param1}||'%'
+			</when>
+			<when test="param2==4">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 				
 			</when>
 			<otherwise>
@@ -23,6 +44,10 @@
 			</otherwise>
 		</choose>
 	</sql>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 	 
 	
 	
@@ -33,10 +58,24 @@
 		MEMJOINDATE,MEMADMIN
 		FROM MEMBER
 		WHERE #{param2} LIKE '%'#{param1}'%' -->
+<<<<<<< HEAD
+=======
+=======
+	
+	
+	
+	<select id="mlist" resultType="com.tech.sprj09.dto.MemberDto">
+
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 		SELECT MEMNO,MEMID,MEMPASS,MEMNAME,MEMBIRTH,MEMSEX,
 		MEMEMAIL,MEMPNUM,MEMADDRESS,MEMLIKEMENU,
 		MEMJOINDATE,MEMADMIN
 		FROM MEMBER
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 		
 		<include refid="includelist1" />
 		
@@ -45,6 +84,39 @@
 	
 	
 
+<<<<<<< HEAD
+=======
+=======
+		<include refid="includelist1" />
+
+	</select> 
+	
+	
+	<!-- <select id="mlist" resultType="com.tech.sprj09.dto.MemberDto">
+
+		SELECT MEMNO,MEMID,MEMPASS,MEMNAME,MEMBIRTH,MEMSEX,
+		MEMEMAIL,MEMPNUM,MEMADDRESS,MEMLIKEMENU,
+		MEMJOINDATE,MEMADMIN
+		FROM MEMBER ORDER BY MEMNO ASC
+
+	</select> 
+	 -->
+<!-- 	<select id="selectMemeberTotCount1" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE MEMID LIKE '%'||#{param1}||'%'
+	</select>
+	<select id="selectMemeberTotCount2" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE MEMNAME LIKE '%'||#{param1}||'%'
+	</select>
+	<select id="selectMemeberTotCount3" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE MEMID LIKE '%'||#{param1}||'%' OR MEMNAME LIKE '%'||#{param1}||'%'
+	</select>
+	<select id="selectMemeberTotCount4" resultType="Integer">
+		SELECT COUNT(*)	FROM MEMBER
+	</select>
+	 -->
+	
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 	
 	
 	<select id="memberview"
@@ -67,7 +139,15 @@
 
 	<select id="clist" resultType="com.tech.sprj09.dto.MemberDto">
 
+<<<<<<< HEAD
 		SELECT DECODE (MEMADMIN,'회원','파트너','식당','식당파트너','관리자','관리자') AS LV, COUNT(MEMNO) AS SUM FROM MEMBER GROUP BY MEMADMIN
+=======
+<<<<<<< HEAD
+		SELECT DECODE (MEMADMIN,'회원','파트너','식당','식당파트너','관리자','관리자') AS LV, COUNT(MEMNO) AS SUM FROM MEMBER GROUP BY MEMADMIN
+=======
+		SELECT DECODE (MEMADMIN,0,'파트너',1,'식당파트너',2,'관리자') AS LV, COUNT(MEMNO) AS SUM FROM MEMBER GROUP BY MEMADMIN
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
+>>>>>>> ac09d1f445c90079fe0aa95ebc232a8ce3b79994
 
 	</select>
 
