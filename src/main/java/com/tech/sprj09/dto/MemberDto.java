@@ -22,11 +22,19 @@ public class MemberDto {
 	public String memaddress;// 회원지역
 	public String memlikemenu; // 회원이 선호하는 메뉴
 	public Timestamp memjoindate; // 회원가입일
+<<<<<<< HEAD
 	public String memadmin; // ADMIN인지 일반 회원인지 구분하는 ...
 	private String lv;
 	private String sum;
 	public MemberDto(int memno, String memid, String mempass, String memname, String membirth, String memsex,
 			String mememail, String mempnum, String memaddress, String memlikemenu, Timestamp memjoindate, String memadmin,
+=======
+	public int memadmin; // ADMIN인지 일반 회원인지 구분하는 ...
+	private String lv;
+	private String sum;
+	public MemberDto(int memno, String memid, String mempass, String memname, String membirth, String memsex,
+			String mememail, String mempnum, String memaddress, String memlikemenu, Timestamp memjoindate, int memadmin,
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 			String lv, String sum) {
 		super();
 		this.memno = memno;

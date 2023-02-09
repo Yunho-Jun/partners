@@ -116,7 +116,11 @@
         
         
         <property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
         <property name="context-root" value="/partners"/>
+=======
+        <property name="context-root" value="partners"/>
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
                                                                                                                                         	
     
     

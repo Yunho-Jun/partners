@@ -51,6 +51,8 @@ public class WebChatServer extends HttpServlet{
 		
 		users.put(session, client);
 		sendNotice(client.getName() + "님이 입장하셨습니다. 현재 사용자 " + users.size() + "명");
+//		sendNotice("현재 사용자 " + users.size() + "명");
+//		userlist("현재 사용자 " + client.getName());
 	}
 	
 	
@@ -70,6 +72,23 @@ public class WebChatServer extends HttpServlet{
 			}
 		}
 	}
+	
+//	public void userlist(String message){
+//	String userName = "server";
+//	System.out.println(userName + " : " + message);
+//	
+//	synchronized (users) {
+//		Iterator<Session> it = users.keySet().iterator();
+//		while(it.hasNext()){
+//			Session currentSession = it.next();
+//			try {
+//				currentSession.getBasicRemote().sendText(userName + " : " + message);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
+//}
 
 	@OnClose
 	public void onClose(Session session) {

@@ -68,6 +68,7 @@ con.close();
 					<a href="#" class="nav__logo">파트너스</a>
 				</div>
 				<div class="nav__list">
+<<<<<<< HEAD
 					
 					<a href="/partners" class="nav__link active"> 
 					<ion-icon name="home-outline" class="nav__icon"> </ion-icon> 
@@ -92,6 +93,37 @@ con.close();
 					<a href="#" class="nav__link"> 
 					<ion-icon name="settings-outline" class="nav__icon"></ion-icon> 
 					<span class="nav_name">Settings</span>
+=======
+					<a href="#" class="nav__link active"> <ion-icon
+							name="home-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">홈으로</span>
+					</a> <a href="#" class="nav__link"> <ion-icon
+							name="chatbubbles-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">Messenger</span>
+					</a> <a href="#chart" class="nav__link"> <ion-icon
+							name="pie-chart-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">Analytics</span>
+					</a>
+
+					<div href="#" class="nav__link active">
+						<ion-icon name="people-outline" class="nav__icon"></ion-icon>
+						<span class="nav_name">Team</span>
+
+						<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+						<ul class="collapse__menu">
+							<a href="#" class="collapse__sublink">Data</a>
+							<br />
+							<a href="#" class="collapse__sublink">Group</a>
+							<br />
+							<a href="#memberchart" class="collapse__sublink">Members</a>
+						</ul>
+					</div>
+
+					<a href="#" class="nav__link"> <ion-icon
+							name="settings-outline" class="nav__icon"></ion-icon> <span
+						class="nav_name">Settings</span>
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 					</a>
 				</div>
 				<a href="#" class="nav__link"> <ion-icon name="log-out-outline"
@@ -118,12 +150,20 @@ con.close();
 				<canvas id="Chart2" width="400" height="400"></canvas>
 			</div>
 
+<<<<<<< HEAD
 
 		</div>
 		<div class="row">
 			<div class="col-md-4">
 				<canvas id="Chart3" width="400" height="400"></canvas>
 			</div>
+=======
+			<div class="col-md-4">
+				<canvas id="Chart3" width="400" height="400"></canvas>
+			</div>
+		</div>
+		<div class="row">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 			<div class="col-md-4">
 				<canvas id="Chart4" width="400" height="400"></canvas>
 			</div>
@@ -243,6 +283,7 @@ con.close();
 		      }
 		    }
 		  });
+<<<<<<< HEAD
 		const barChart4 = new Chart(Chart4, {
 			type : 'bar',
 			data : {
@@ -273,6 +314,8 @@ con.close();
 				}
 			}
 		});
+=======
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 
 	</script>
 
@@ -282,6 +325,7 @@ con.close();
 
 	<div
 		style="overflow-x: hidden; width: 80%; height: 500px; margin-left: 150px">
+<<<<<<< HEAD
 		<p id="memberchart">
 		<form action="admin#memberchart" method="post">
 			<div class="search">
@@ -294,6 +338,21 @@ con.close();
 		</form>
 
 
+=======
+
+		<form action="admin#memberchart" method="post">
+			<div class="search">
+				<select class="search-select" name="searchType">
+					<option value="memid">memid</option>
+					<option value="memname">name</option>
+				</select>
+				<input type="text" class="search-input" name="searchName"/>
+				<button type="submit" class="btn search-bnt"> 검색</button>
+			</div>
+		</form>
+
+		<p id="memberchart">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 		<h1>회원 관리 페이지</h1>
 		전체 회원숫자 : ${mlist.size() }
 		<table width="1200" border="1">
