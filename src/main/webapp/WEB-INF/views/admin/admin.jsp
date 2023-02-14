@@ -68,6 +68,32 @@ con.close();
 					<a href="#" class="nav__logo">파트너스</a>
 				</div>
 				<div class="nav__list">
+<<<<<<< HEAD
+					
+					<a href="/partners" class="nav__link active"> 
+					<ion-icon name="home-outline" class="nav__icon"> </ion-icon> 
+							<span class="nav_name">홈으로</span>
+					</a> 
+					
+					<a href="#" class="nav__link"> 
+						<ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon> 
+							<span class="nav_name">Messenger</span>
+					</a> 
+						<a href="#chart" class="nav__link"> 
+						<ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon> 
+							<span class="nav_name">Analytics</span>
+					</a>
+
+
+					<a href="#memberchart" class="nav__link"> 
+					<ion-icon name="people-outline" class="nav__icon"></ion-icon>
+						<span class="nav_name">Team</span></a>
+
+
+					<a href="#" class="nav__link"> 
+					<ion-icon name="settings-outline" class="nav__icon"></ion-icon> 
+					<span class="nav_name">Settings</span>
+=======
 					<a href="#" class="nav__link active"> <ion-icon
 							name="home-outline" class="nav__icon"></ion-icon> <span
 						class="nav_name">홈으로</span>
@@ -97,6 +123,7 @@ con.close();
 					<a href="#" class="nav__link"> <ion-icon
 							name="settings-outline" class="nav__icon"></ion-icon> <span
 						class="nav_name">Settings</span>
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 					</a>
 				</div>
 				<a href="#" class="nav__link"> <ion-icon name="log-out-outline"
@@ -123,11 +150,20 @@ con.close();
 				<canvas id="Chart2" width="400" height="400"></canvas>
 			</div>
 
+<<<<<<< HEAD
+
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<canvas id="Chart3" width="400" height="400"></canvas>
+			</div>
+=======
 			<div class="col-md-4">
 				<canvas id="Chart3" width="400" height="400"></canvas>
 			</div>
 		</div>
 		<div class="row">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 			<div class="col-md-4">
 				<canvas id="Chart4" width="400" height="400"></canvas>
 			</div>
@@ -180,10 +216,10 @@ con.close();
 		const barChartTwo = new Chart(Chart2, {
 			type : 'bar',
 			data : {
-				labels : [ 'aa1', 'aa2', 'aa3', 'aa4', 'aa5' ],
+				labels : [ '파트너스', '윤쉐프', '여의도바람', '히든가든', '여름향기' ],
 				datasets : [ {
-					label : '청바지 매출액',
-					data : [ 100, 10, 10, 20, 100 ],
+					label : '가게 조회수',
+					data : [ 1000, 510, 210, 220, 400 ],
 					backgroundColor : [ 'rgba(255,99,132,1.0)',
 							'rgba(55,162,132,0.2)', 'rgba(255,230,132,0.2)',
 							'rgba(75,99,132,1.0)', '#0000ff' ],
@@ -199,7 +235,7 @@ con.close();
 			options : {
 				title : {
 					display : true,
-					text : '청바지매출액',
+					text : '가게 조회수',
 					fontSize : 20,
 					fontColor : 'red'
 				},
@@ -247,6 +283,39 @@ con.close();
 		      }
 		    }
 		  });
+<<<<<<< HEAD
+		const barChart4 = new Chart(Chart4, {
+			type : 'bar',
+			data : {
+				labels : [
+					<c:forEach var="list" items="${clist }">
+					
+					'<c:out value="${list.lv}"/>',
+					
+					</c:forEach>
+				],
+				datasets : [ {
+					label : 'My First Dataset',
+					data : [ 	<c:forEach var="list" items="${clist }">
+					
+					<c:out value="${list.sum}"/>,
+					
+					</c:forEach> ],
+					backgroundColor : [ 'rgb(255, 99, 132)',
+							'rgb(54, 162, 235)', 'rgb(255, 205, 86)' ],
+					hoverOffset : 4
+				} ]
+			},
+			options : {
+				scales : {
+					y : {
+						beginAtZero : true
+					}
+				}
+			}
+		});
+=======
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 
 	</script>
 
@@ -256,6 +325,20 @@ con.close();
 
 	<div
 		style="overflow-x: hidden; width: 80%; height: 500px; margin-left: 150px">
+<<<<<<< HEAD
+		<p id="memberchart">
+		<form action="admin#memberchart" method="post">
+			<div class="search">
+				<select class="search-select" name="searchType">
+					<option value="MEMID" name="MEMID">아이디 검색</option>
+					<option value="MEMNAME" name="MEMNAME">이름 검색</option>
+				</select> <input type="text" class="search-input" name="searchName" />
+				<button type="submit" class="btn search-bnt">검색</button>
+			</div>
+		</form>
+
+
+=======
 
 		<form action="admin#memberchart" method="post">
 			<div class="search">
@@ -269,6 +352,7 @@ con.close();
 		</form>
 
 		<p id="memberchart">
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 		<h1>회원 관리 페이지</h1>
 		전체 회원숫자 : ${mlist.size() }
 		<table width="1200" border="1">

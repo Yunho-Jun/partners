@@ -51,7 +51,11 @@ public interface IDao {
 	public MemberDto login(String memid, String mempass);
 	
 	//admin 설정 정리
+<<<<<<< HEAD
+	public ArrayList<MemberDto> mlist(String searchKeyword, String selnum);
+=======
 	public ArrayList<MemberDto> mlist(String searchKeyword, String selNum);
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 
 	public MemberDto memberview(String bid);
 

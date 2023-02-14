@@ -28,11 +28,44 @@ public class MemberListService implements BServiceInter{
 
 		Map<String, Object> map=model.asMap();//map으로 변환
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
+<<<<<<< HEAD
+=======
 		AdminSearchVO searchVO=(AdminSearchVO) map.get("searchVO");
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 		
 		
 		IDao dao=sqlSession.getMapper(IDao.class);
 		
+<<<<<<< HEAD
+		String searchtype = request.getParameter("searchType");
+
+		//기본값은 1=memid 로
+		String selnum="1";
+	
+		// searchtype null 처리를 안하면 널포인트 익셉션이 뜨고 진입이 안된다...
+		if(searchtype!=null) {
+			
+			if(searchtype.equals("MEMID")) {
+				selnum="1";
+				System.out.println("memid ");
+			}
+			if(searchtype.equals("MEMNAME")) {
+				selnum="2";
+				System.out.println("memname ");
+			}
+			
+		}
+
+		//키워드 가져오기
+		String searchKeyword=request.getParameter("searchName");
+		if (searchKeyword==null) {
+			searchKeyword="";}
+		
+
+		
+		ArrayList<MemberDto> mlist=dao.mlist(searchKeyword, selnum);
+
+=======
 		String[] rememid = request.getParameterValues("searchType");
 //
 //		if (rememid != null) {//null 처리
@@ -117,6 +150,7 @@ public class MemberListService implements BServiceInter{
 		
 		
 		
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 		
 		
 		
@@ -124,9 +158,13 @@ public class MemberListService implements BServiceInter{
 		ArrayList<MemberDto> clist=dao.clist();
 		
 		model.addAttribute("mlist",mlist);
+<<<<<<< HEAD
+
+=======
 		
 //		model.addAttribute("totRowcnt", total);
 //		model.addAttribute("searchVO", searchVO);
+>>>>>>> 3db164deabf601832146c73f7f3a399ccfc3e6fd
 		model.addAttribute("clist",clist);
 	}
 
