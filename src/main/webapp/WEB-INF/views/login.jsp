@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="resources/css/login.css">
 </head>
 <body>
-    <section class="logni-form">
+
+
+
+    <section class="logni-form"> 
         <h1>Login</h1>
         <form action="loginCheck">
             <div class="int-area">
@@ -29,9 +32,12 @@
         </div>
     </section>
     <script>
-        let id=$('#MEMID');
-        let pw=$('#MEMPASS');
+    
+    	
+    	let id=$('#memid');
+    	let pw=$('#mempass');
         let btn=$('#btn');
+        
         $(btn).on('click', function() {
             if($(id).val() == "") {
                 $(id).next('label').addClass('warning');
@@ -39,6 +45,7 @@
                     $('label').removeClass('warning');
                 }, 1500);
             }
+            
             else if($(pw).val() == "") {
                 $(pw).next('label').addClass('warning');
                 setTimeout(function() {
@@ -46,6 +53,7 @@
                 }, 1500);
             }
         });
+
     </script>
     
 </body>

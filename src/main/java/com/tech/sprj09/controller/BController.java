@@ -162,33 +162,33 @@ public class BController {
 
 		return "redirect:list";
 	}
-	
+
 	// 회원가입폼으로
 	@RequestMapping("/joinform1")
 	public String joinform1(HttpServletRequest request, SearchVO searchVO, Model model) {
 		System.out.println("=============this is joinform============");
 		return "joinform1";
 	}
-	
-	// 회원가입 기능 
+
+	// 회원가입 기능
 	@RequestMapping("/join")
 	public String joinProc(HttpServletRequest request, SearchVO searchVO, Model model) {
 		System.out.println("=============join PROC============");
-		
+
 		model.addAttribute("request", request);
 
 		bServiceInter = new JoinService(sqlSession);
 		bServiceInter.execute(model);
-		
+
 		return "redirect:login";
 	}
-	
+
 	// id중복조회
 	@ResponseBody
 	@RequestMapping(value = "/usingId_chk", produces = "text/plain")
 	public String idCheck(HttpServletRequest request, HttpServletResponse reponse, Model model) {
 		System.out.println("=======usingId_chk==========");
-		
+
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -200,10 +200,10 @@ public class BController {
 		System.out.println("memid컨트롤 : " + memid);
 //		MemberDto dto = new MemberDto();
 //		dto.setMemid(memid);
-		
-		IDao dao=sqlSession.getMapper(IDao.class);
+
+		IDao dao = sqlSession.getMapper(IDao.class);
 		int using_user = dao.loginLookup(memid);
-		System.out.println("using_user"+using_user);
+		System.out.println("using_user" + using_user);
 		String result = "" + using_user; // 숫자를 문자열로 변환
 
 		return result;

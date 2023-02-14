@@ -10,15 +10,15 @@
 </head>
 <body>
 	<h3>menu writeview</h3>
-	<form action="/partners/menu/write" method="post" enctype="multipart/form-data" th:object="${menuVO}">
+	<form action="/sprj09/menu/write" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td class="left">식단</td>
-				<td><input type="text" th:field="*{menulist}" /></td>
+				<td><input type="text" name="menulist"/></td>
 			</tr>
 			<tr>
 				<td class="left">식단날짜</td>
-				<td><input type="date" th:field="*{menudate}" /></td>
+				<td><input type="date" name="menudate"/></td>
 			</tr>
 			<tr>
 				<td class="left">사진</td>

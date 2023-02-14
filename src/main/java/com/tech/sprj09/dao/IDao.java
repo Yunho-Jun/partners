@@ -1,9 +1,11 @@
 package com.tech.sprj09.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.tech.sprj09.dto.BoardDto;
 import com.tech.sprj09.dto.MemberDto;
+import com.tech.sprj09.dto.MenuDto;
 
 public interface IDao {
 
@@ -45,6 +47,7 @@ public interface IDao {
 
 	public int loginLookup(String memid);
 
+	//login
 	public MemberDto login(String memid, String mempass);
 	
 	//admin 설정 정리
@@ -57,4 +60,6 @@ public interface IDao {
 	public void membermodify(String bid, String memadmin);
 
 	public ArrayList<MemberDto> clist();
+	
+	public List<MenuDto> selectMenuList(int sikno);
 }
